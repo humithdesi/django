@@ -1,0 +1,49 @@
+<div style="margin-top: 10px;">
+
+    <label style="font-weight: bold;font-size:1rem; color:brown">Đơn vị</label>
+  
+     <mat-form-field  style="width: 100%;margin:5px 0px -10px 0px" >
+      
+       <mat-select  style="text-align:center"  (selectionChange)="getDonvi($event)" [(ngModel)]="donviHeso" name="donviHeso">
+         <mat-option *ngFor="let c of thuvienDonvi" [value]="c.heso" >
+           {{c.donvi}} 
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+   </div>
+   <div>
+     <label style="font-weight: bold;font-size:2rem; color:brown; ">Dịch Vụ In Ấn:</label>
+   <mat-form-field color="primary" style="width: 100%; margin:5px 0px -10px 0px" >
+  
+     <mat-select   [(ngModel)]="BangHieu" name="BangHieu"  style="text-align:center" >
+       <mat-option *ngFor="let c of banghieus ;let i=index"  [value]="c.value" (click)="GetIndex(i)" >{{c.name}}</mat-option>
+     </mat-select>
+   </mat-form-field>
+   <label style="font-weight: bold;font-size:1rem; color:brown">Diện Tích:</label>
+  </div>
+   <div class="heigh-width">
+     
+     <label style="font-size: 1rem">Ngang: </label>
+     <input name="height" type="number" min="0"  [(ngModel)]="height"><span s>{{donviName}}</span>
+     <label style="margin:0 10px 0 10px">X</label>
+     <label style="font-size: 1rem">Cao:</label>
+     <input  name="width" type="number" min="0"  [(ngModel)]="width"><span >{{donviName}}</span>
+   </div>
+  
+   <mat-radio-group *ngIf="checkmatbang"  name="radioValueMatBang" (change)="changeValueOfMatBang($event)" >
+    <mat-radio-button *ngFor="let c of radioMatBangs; let i=index" color="primary" [checked]="i === 0" [value]="c.valueMat"><a style="color: black;" >{{c.soMat}}{{i}}</a></mat-radio-button>
+  </mat-radio-group>
+   <div class="quanlity" >
+     <label style="font-size: 1rem">Số Lượng:</label>
+     <input  name="width" type="number" min="1" [(ngModel)]="quality"><span>Tấm</span>
+   </div>
+   <div>
+     <label style="font-weight: bold;font-size:1rem; color:brown">Chi Phí Ước Tính:</label>
+   <input  *ngIf="height>0 && width>0" disabled="true" name="chiphiInbat" style="border:none; font-size:1.5rem;font-weight:bold;color:red; background-color:white;width:100%; text-align:center"  type="number"
+   [(ngModel)]="BangHieu*quality*height*donviHeso*width*donviHeso*radioValueMatBang">
+    <p style=" margin-top:10px; font-size:1rem;color:rgb(111, 0, 255); background-color:white;width:100%" *ngIf="checkchandung && height>0 && width>0">
+     ! Thêm chân đứng cho bảng : <span style="color: brown;">250.000</span></p>
+    <p style=" margin-top:10px; font-size:1.5rem;color:rgb(111, 0, 255); background-color:white;width:100%; text-align:center" *ngIf="height<=0 || width<=0">
+     Kích Thước Không Đúng</p>
+  
+  </div>

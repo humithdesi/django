@@ -1,4 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+html{
+    font-size:62.5%
+}
 li{list-style-type: none;}
 a{text-decoration: none;}
 .pageActivate{
@@ -8,8 +11,7 @@ a{text-decoration: none;}
 .slick-slider {
     width: 100%;
     margin: auto;
-    background: rgb(55, 200, 14);
-    padding: 20px;
+    padding: 0px;
   }
 .prev,.next
     {
@@ -17,19 +19,30 @@ a{text-decoration: none;}
         display: block;
         line-height: 0px;
         cursor: pointer;
-        background: none;
-        color: yellow;
+        background: rgba(0, 0, 0, 0.3); 
+        opacity: 80%;
+        color: rgb(255, 255, 255);
         top: 50%;
         transform: translate(0, -50%);
-        
+        font-size: large;
         border: 1px;
         border-radius: 99px;
         outline: none;
-        z-index: 100;
-        padding: 80px 15px;
+        z-index: 2;
+        padding: 20px 15px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: all 0.25s ease-in-out;
         
 }
+.prev:hover,.next:hover
+    {
+        opacity: 50%;
+}
 .prev{left: 5%;}
+
 .next{right: 5%;}
 .none{display: none;}
+
+
+html, body { height: 100%; }
+

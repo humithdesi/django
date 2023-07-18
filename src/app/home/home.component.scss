@@ -1,0 +1,107 @@
+.video-background-parent {
+  background-color: #e8e5c5; position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.video-background-parent-mobi {
+  background-color: #ffffff; position: relative;
+  padding: 2rem;
+}
+
+.video-background {
+  top: 0;
+  left: 0;
+ width: 100%;
+ height: 100vh;
+ height: auto;
+  object-fit: cover;
+  z-index: -1;
+  }
+  .video-background-mobi{
+    border-radius: 2rem;
+  }  
+
+.content-left{
+    text-align: center;
+    padding: 4rem;}
+
+
+ .content-left p{
+  display: -webkit-box;
+  -webkit-line-clamp: 7; /* Số dòng tối đa */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 2rem;
+  margin-top: 2rem;
+ }
+ .content button{
+  color: rgb(138, 14, 53);
+  font-weight: bold;
+  margin-left:3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+ }    
+  .tag-select-content{
+    display: flex;
+    position: absolute;
+    right: 2rem;
+    bottom:3rem;
+  }
+.cardTest{
+  transition:background-color 0.3s ease-in-out;
+}  
+.cardTest:hover{
+  background-color: bisque;
+}  
+.icon-list-background{
+  display: flex;
+  justify-content: center;
+
+}
+.item-icon-list-background{
+  margin: 0.5rem;
+  background-color: rgb(223, 223, 226);
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 99rem;
+  transition: all 0.3s ease-in-out;
+  border-color: #9cb7ee;
+}
+.activeIcon{
+  background-color: rgb(62, 135, 218);
+  padding: 0 1.7rem 0 1.7rem;
+
+}
+.Background_label{
+text-align: center;
+}
+.Background_label h1{
+  font-size: 4rem;
+  font-weight: bold;
+  color: #38ce27;
+  }
+.Background_label p{
+  font-size: 2rem;
+  color: #3f3f33;
+  }
+
+
+.col-lg-3, .col-md-6, .col-xs-12 {
+  transition: all 0.5s 
+}
+.card-text{font-size: 1.4rem;}
+@media (max-width: 992px) {
+  .card-text{
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+.Background_label h1{
+font-size: 3rem;
+  }
+  .Background_label p{
+    font-size: 1.5rem;
+      }  
+}
+
+

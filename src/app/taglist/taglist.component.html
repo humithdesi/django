@@ -1,10 +1,10 @@
 <ul class="list-group" >
-    <li class="list-group-item d-flex justify-content-between align-items-center active" style="font-weight: bold;">
-      LÀM BẢNG HIỆU
+    <li class="" style=" font-size: 2rem; font-weight: bold; color: rgb(142, 126, 126);border-bottom: solid 1px  rgb(228, 207, 207);">
+      Làm bảng hiệu
     </li>
     <ng-container *ngFor="let post of banghieus.posts" >
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a class="" style="width: 100%;" target="_top"
+    <li class=" list-group-item d-flex justify-content-between align-items-center" >
+      <a class="" style="width: 100%; font-size: 2rem;" target="_top"
       routerLink="/postDetail/{{post.slug}}" 
       routerLinkActive=""
       ariaCurrentWhenActive="page">{{post.titte}}</a>

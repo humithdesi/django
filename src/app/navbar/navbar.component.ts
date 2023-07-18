@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { faCoffee,faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,6 +9,10 @@ import { faCoffee,faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent {
 
+  formsHide:boolean=false
+  toggleForms(){
+    this.formsHide=!this.formsHide
+  }
   constructor(private breakpointObserver:BreakpointObserver){}
   faCoffee = faBars;
   title = 'quangcao';
@@ -28,4 +32,23 @@ export class NavbarComponent {
         this.isMenu=true
       }
     });}
+
+  /**
+    offsetFlag = true;
+    getClass(){
+      if(this.offsetFlag==true){
+        return 'fixed-menu-hiden'
+      }
+      else return 'fixed-menu';
+    }
+  
+    @HostListener('window:scroll', ['$event']) getScrollHeight(event: any) {
+      console.log(window.pageYOffset, event);
+      if(window.pageYOffset> 10 )
+       this.offsetFlag = false;
+      else
+        this.offsetFlag = true;
+   }
+  */
+
 }

@@ -1,0 +1,11 @@
+input:focus{
+    outline: none;
+  }
+.heigh-width{ display: flex; font-family: Arial, Helvetica, sans-serif;align-items: center;margin-top: 5px;}
+.heigh-width input{border:none;border-bottom: 1px solid rgb(214, 209, 209); text-align: center; width: 65px;font-size: 1rem;box-shadow:0px 10px 25px -15px #000;}
+.heigh-width label{color: #828286;}
+.heigh-width span{color: #828286; font-size: larger;}
+.quanlity input{border: none; text-align: center; width: 50px;font-size: 1rem;  }
+.quanlity input:focus{border-color:#ffffff}
+.quanlity label{color: #828286;;}
+.quanlity span{color: #828286;; font-size: larger;  }

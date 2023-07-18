@@ -1,20 +1,231 @@
-<app-navbar></app-navbar>
-<div style="background-color: rgb(55, 200, 14);">
-  <ngx-slick-carousel class="container carousel" 
+
+
+
+<div  class="container-fluid"  style="margin-top: 6rem;">
+  <div  class="row">
+    <div *ngIf="showDiv"  class="col col-md-5 content-left" style="background-color: #e8e5c5;">
+        <h1 style="font-size: 3rem;">{{homePageTitle.title}}</h1>
+        <p>{{homePageTitle.describe}}</p>
+        <button class="btn">................................Liên Hệ Quảng Cáo</button>
+    </div>
+    <div appSwipe (swipeLeft)="onSwipeLeft()" (swipeRight)="onSwipeRight()"
+      class="col col-md-7 video-background-parent" [ngClass]="{'video-background-parent-mobi':!showDiv}">
+
+      <video [ngClass]="{'video-background-mobi':!showDiv}"
+      class="video-background"
+      [src]="homePageTitle.backgroundVideo" type="video/mp4"
+      autoplay muted loop playsinline preload="auto" onloadedmetadata="this.muted = true">
+      </video>
+      <div class="tag-select-content" *ngIf="showDiv" >
+        <div class="card m-2  cardTest" style="width: 15rem; cursor: pointer " *ngFor="let item of homePageTitleList_PC ;let indexnum=index">
+          <div class="row " style="height: 6rem;" (click)="changePageTitle(indexnum)">
+            <div class="col-4">
+              <img src="https://via.placeholder.com/800x400" style="height: 6rem; width: 5rem;"  >
+            </div>
+            <div class="col-8 d-flex align-items-center justify-content-center ">
+                <h5 style="font-weight: bold; color: brown;">{{item.catalogy}}</h5>
+    
+            </div>
+          </div>
+        </div>
+    
+      </div>  
+    </div>
+  </div>
+</div>
+
+<ul class="icon-list-background" *ngIf="!showDiv" >
+  <li class="item-icon-list-background" [ngClass]="{'activeIcon': indexHomePageTitleList==0}"></li>
+  <li class="item-icon-list-background" [ngClass]="{'activeIcon': indexHomePageTitleList==1}"></li>
+  <li class="item-icon-list-background" [ngClass]="{'activeIcon': indexHomePageTitleList==2}"></li>
+</ul>
+
+
+<div *ngIf="!showDiv" class="container mt-5 " >
+  <h1 style="text-align: center ;font-size: 2.5rem; font-weight: bold;color: #16386B;margin-bottom: 1rem;">
+    BẢNG HIỆU QUẢNG CÁO
+  </h1> 
+  <ngx-slick-carousel class="carousel shadow" 
   #slickModal="slick-carousel" 
   [config]="slideConfig" >
-  
+
   <div ngxSlickItem *ngFor="let post of postAll | slice:0:4" class="slide" >
-   
-     <div class="container d-flex justify-content-center">
-        <div class="shadow bg-white" style="margin-bottom: 25px; width: 100%;">
-        <img src="{{post.image}}" class="" style="height:300px" alt="...">
-        <h5 class="card-title p-2">{{post.titte}}</h5>
-        <li class="text-center bg-primary-subtle p-2" >
-            <a routerLink="/postDetail/{{post.slug}}"  routerLinkActive="active" ariaCurrentWhenActive="page">view</a>
-        </li>
+     <div class="container d-flex justify-content-center align-items-center " >
+        <div class="bg-white" style="margin-bottom: 25px; ">
+        <img src="{{post.image}}" preload="auto" alt="..." style="height: 300px;">
+        <h5 style="font-size: large; color: #16386B; cursor: pointer; "
+        routerLink="/postDetail/{{post.slug}}"  routerLinkActive="active" ariaCurrentWhenActive="page" class="card-title mt-2">
+          {{post.titte | titlecase}}</h5>
+        <p class="card-title" style="font-size: 1.2rem;color: rgb(101, 97, 91);">{{post.day_create| date: 'dd/MM/yyyy' }}</p>
         </div>
     </div>
   </div>
   </ngx-slick-carousel> 
 </div>   
+
+
+<div *ngIf="!showDiv" class="container mt-5 " >
+  <h1 style="text-align: center ;font-size: 2.5rem; font-weight: bold;color: #16386B;margin-bottom: 1rem;">
+  DỊCH VỤ IN ẤN
+  </h1> 
+  <ngx-slick-carousel class="carousel shadow" 
+  #slickModal="slick-carousel" 
+  [config]="slideConfig" >
+
+  <div ngxSlickItem *ngFor="let post of postAll | slice:0:4" class="slide" >
+     <div class="container d-flex justify-content-center align-items-center " >
+        <div class="bg-white" style="margin-bottom: 25px; ">
+        <img src="{{post.image}}" preload="auto" alt="..." style="height: 300px;;"
+        >
+        <h5 style="font-size: large; color: #16386B; cursor: pointer; "
+        routerLink="/postDetail/{{post.slug}}"  routerLinkActive="active" ariaCurrentWhenActive="page" class="card-title mt-2">
+          {{post.titte | titlecase}}</h5>
+        <p class="card-title" style="font-size: 1.2rem;color: rgb(101, 97, 91);">{{post.day_create| date: 'dd/MM/yyyy' }}</p>
+        </div>
+    </div>
+  </div>
+  </ngx-slick-carousel> 
+</div> 
+
+
+
+
+<div class="Background_label container p-4 " style=" text-align: center;">
+  <div class="d-flex justify-content-center">
+  <h1 style="margin-top: 4rem;border-bottom:1px solid red ; font-size: 3rem; color: #676011;">VỀ CHÚNG TÔI</h1>
+</div>
+<p>
+  Công ty quảng cáo bảng hiệu có kinh nghiệm và chuyên môn trong lĩnh vực quảng cáo và thiết kế bảng hiệu. Chúng tôi cam kết cung cấp sản phẩm với giá cả hợp lý và dịch vụ chăm sóc khách hàng tốt. Sản phẩm đa dạng và độc đáo, đảm bảo mang đến cho khách hàng những sản phẩm chất lượng và đẹp mắt.
+</p>
+</div>
+
+
+
+<div class="container" >
+  <div class="row " >
+    <div class="col-lg-3 col-md-6 col-xs-6" style="margin-top: 2rem;" >
+      <div class="p-4 shadow" style="text-align: center;">
+        <div class="d-flex justify-content-center">
+        <img class="card-img-top" style="width:auto;height: 9rem;" src="https://storage.cloud.google.com/cloudquangcao/label/iconKinhNghiem.png" alt="Card image cap">
+      </div>
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.8rem; color: #746d39; margin-top: 1rem; font-weight: bold;">
+            KINH NGHIỆM, CHUYÊN MÔN
+          </h5>
+          <p class="card-text" style="color: #746d39;">
+Đội ngũ nhân viên chuyên nghiệp, tay nghề cao. Đảm bảo mang đến cho khách hàng những sản phẩm chất lượng và đẹp mắt. 
+            
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-6" style="margin-top: 2rem; ">
+      <div class="p-4 shadow" style="text-align: center">
+        <div class="d-flex justify-content-center">
+        <img class="card-img-top" style="width:auto;height: 9rem;" src="https://storage.cloud.google.com/cloudquangcao/label/iconGiaCaHopLy.png" alt="Card image cap">
+      </div>
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.8rem; color: #746d39; margin-top: 1rem; font-weight: bold;">
+            GIÁ CẢ HỢP LÝ
+          </h5>
+          <p class="card-text" style="color: #746d39;">
+  Chúng tôi luôn tìm cách tối ưu chi phí để giảm giá thành sản phẩm, đồng thời đảm bảo chất lượng và thời gian giao hàng.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-6" style="margin-top: 2rem;" >
+      <div class="p-4 shadow" style="text-align: center;">
+        <div class="d-flex justify-content-center">
+        <img class="card-img-top" style="width:auto;height: 9rem;" src="https://storage.cloud.google.com/cloudquangcao/label/iconChamSocKhachHang.png" alt="Card image cap">
+      </div>
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.8rem; color: #746d39; margin-top: 1rem; font-weight: bold;">
+            DV CHĂM SÓC KHÁCH HÀNG
+          </h5>
+          <p class="card-text" style=" color: #746d39">
+            Chúng tôi luôn đặt khách hàng lên hàng đầu và cam kết cung cấp dịch vụ chăm sóc khách hàng tốt nhất. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-6" style="margin-top: 2rem;" >
+      <div class="p-4 shadow" style="text-align: center;">
+        <div class="d-flex justify-content-center">
+        <img  preload="auto" class="card-img-top" style="width:auto;height: 9rem;" src="https://storage.cloud.google.com/cloudquangcao/label/iconSanPhamDaDang.png" alt="Card image cap">
+      </div>
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.8rem; color: #746d39; margin-top: 1rem; font-weight: 600;">
+            SẢN PHẨM ĐA DẠNG
+          </h5>
+          <p class="card-text" style="color: #746d39">
+            Chúng tôi cung cấp các loại bảng hiệu quảng cáo ngoài trời, bảng hiệu LED, bảng hiệu mica, bảng hiệu alu… 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <div *ngIf="showDiv" class="Background_label container p-4 " style=" text-align: center;">
+    <div class="d-flex justify-content-center">
+      <h1 style="margin-top: 4rem;border-bottom:1px solid red ; font-size: 3rem; color: #676011;">THI CÔNG BẢNG HIỆU QUẢNG CÁO</h1>
+    </div>
+  </div>
+
+  <div *ngIf="showDiv" class="container" >
+    <div class="row " >
+      <div class="col-lg-3 col-md-6 col-xs-6" style="margin-top: 2rem;" *ngFor="let post of postAll | slice:0:4">
+        <div class="p-4 shadow" style="text-align: center;">
+          <div class="d-flex justify-content-center">
+          <img preload="auto" class="card-img-top"  src="{{post.image}}" alt="Card image cap">
+        </div>
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 2rem; color: #16386B; margin-top: 1rem; font-weight: bold;">
+              {{post.titte | titlecase}}
+            </h5>
+            <p class="card-text" style="color: #16386B;">
+              {{post.day_create | date: 'dd/MM/yyyy'}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div *ngIf="showDiv" class="Background_label container p-4 " style=" text-align: center;">
+    <div class="d-flex justify-content-center">
+      <h1 style="margin-top: 4rem;border-bottom:1px solid red ;font-size: 3rem; color: #676011;">DỊCH VỤ IN ẤN</h1>
+    </div>
+  </div>
+  <div *ngIf="showDiv" class="container" >
+    <div class="row " >
+      <div class="col-lg-3 col-md-6 col-xs-6" style="margin-top: 2rem;" *ngFor="let post of postAll | slice:0:4">
+        <div class="p-4 shadow" style="text-align: center;">
+          <div class="d-flex justify-content-center">
+          <img class="card-img-top"  src="{{post.image}}" alt="Card image cap">
+        </div>
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 2rem; color: #16386B; margin-top: 1rem; font-weight: bold;">
+              {{post.titte | titlecase}}
+            </h5>
+            <p class="card-text" style="color: #16386B;">
+              {{post.day_create | date: 'dd/MM/yyyy'}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

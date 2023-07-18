@@ -1,4 +1,36 @@
-a{font-weight: bold; color: rgb(108, 141, 96);padding: 10px;}
-li{transition: 0.3s; height: 50px; display: flex; justify-content: center; align-items: center;}
+a{font-weight: bold; color: rgb(108, 141, 96);padding: 10px; font-size: 1.5rem;}
+li{transition: 0.3s; display: flex; justify-content: center; align-items: center;}
 li:hover { color: rgb(126, 70, 176); padding: 0px 30px 0px 30px;}
 .activeNav{ color: rgb(126, 70, 176);}
+
+@media screen and (max-width: 500px) {
+    .logo{
+        margin-left: -10px;
+    }
+}
+.formUocTinh_web{
+    position: fixed;
+    top:0;right:0;
+    z-index: 999999;
+}
+.closer:after {
+    content: '\00d7';
+    color: #777;
+    font-size: 16px;
+    position: absolute;
+    right: 2rem;
+    text-decoration: none;
+    top: 3rem;
+    cursor: pointer;
+    z-index: 4;
+    font-size: 3rem;
+  }
+
+  .fixed-menu{
+    top:0;
+    position: fixed;
+    width: 100%;
+    transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    transform: translateY(0);
+    z-index: 100;
+    }

@@ -1,0 +1,27 @@
+
+
+<form *ngIf="formsHide"  class="formUocTinhChiPhi">
+    <h1>ƯỚC TÍNH CHI PHÍ</h1>
+    <div style="text-align: center;">
+        <button mat-raised-button style="margin: 5px; " [color]=" formChange ? 'primary' : 'accent'" (click)="formChange=true">IN ẤN</button>
+        <button mat-raised-button style="margin: 5px; " [color]=" formChange ? 'accent' : 'primary'" (click)="formChange=false">LÀM BẢNG HIỆU</button>
+        
+    </div>
+<app-chiphiinbat *ngIf="formChange"></app-chiphiinbat>
+<app-chiphibanghieu  *ngIf="!formChange"></app-chiphibanghieu>
+
+
+<h1 style="text-align:center; background-color:red; border-radius:99px; color:white; padding:10px">HOTLINE: 0703.124.241</h1>
+
+<div class="lottie-animation d-flex" style='height: 200px; display: block; justify-content: center;'>
+    <ng-lottie *ngIf="formChange"
+      [options]="options" 
+     >
+    </ng-lottie>
+    <ng-lottie *ngIf="!formChange"
+      [options]="stepTwoOptions" 
+     >
+    </ng-lottie>
+  </div>
+</form>
+

@@ -1,6 +1,8 @@
+<div class="fixed-menu">
+
 <nav class="navbar navbar-expand-lg shadow-sm " style="background-color: rgb(255, 255, 255);">
     <div class="container-fluid">
-      <a class="navbar-brand" style="margin-left:5%;" href="#"><img src="https://s3luutru.s3.us-west-2.amazonaws.com/logo/logo2.jpg" height="30"></a>
+      <a class="navbar-brand logo" href="#"><img src="https://storage.cloud.google.com/cloudquangcao/logo/logo2.jpg" height="30"></a>
       <div *ngIf="!isMenu" class="d-flex justify-content-center align-items-center">
         <li class="nav-item ">
           <a class="" style="width: 100%;" target="_top"
@@ -14,10 +16,14 @@
           <a class="" style="width: 100%;" target="_top"
             routerLink="/category/phan-mem-quang-cao" routerLinkActive="activeNav"ariaCurrentWhenActive="page">Phần Mềm Quảng Cáo</a>
         </li>
-        <li class="nav-item " style="margin-right: 90px;">
+        <li class="nav-item ">
           <a class="" style="width: 100%;" target="_top"
-            routerLink="/category/chia-se-file-quang-cao" routerLinkActive="activeNav"ariaCurrentWhenActive="page">Chia Sẽ File Quảng Cáo</a>
+          routerLink="/category/chia-se-file-quang-cao" routerLinkActive="activeNav"ariaCurrentWhenActive="page">Chia Sẽ File Quảng Cáo</a>
         </li>
+        <li class="nav-item " style="margin-right: 90px;">
+          <a style="width: 100%;  color:rgb(108, 141, 96);cursor: pointer;" target="_top" (click)=" toggleForms()">Ước Tính Chi Phí</a>
+        </li>
+        
       </div>  
     <div *ngIf="isMenu" class="d-flex justify-content-center align-items-center">
       <button *ngIf="isMenu" class="btn btn-primary" type="button" (click)="collapses.toggle()" [attr.aria-expanded]="!isCollapsed" style="border: none;padding:  10px 20px;">
@@ -47,3 +53,10 @@
       </li>
     </ul>
   </div>
+</div>
+
+  <div *ngIf="formsHide" class="formUocTinh_web">
+    <a (click)="formsHide=false" class="closer"></a>
+    <app-uoctinhchiphi ></app-uoctinhchiphi>
+  </div>
+

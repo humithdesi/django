@@ -1,15 +1,15 @@
 
 <ul class="list-group mt-3" >
-  <li class="list-group-item d-flex justify-content-between align-items-center active" style="font-weight: bold;">
-    CÔNG TRÌNH HOÀN THIỆN
+  <li class="" style="font-weight: bold; font-size: large; color: rgb(142, 126, 126); border-bottom: solid 1px  rgb(228, 207, 207);">
+    Công trình hoàn thiện
   </li>
   <ng-container *ngFor="let post of postAll  | slice:0:10" >
-  <li class="list-group-item d-flex justify-content-between align-items-center ">
-    <a class="tagText" style="width: 100%" target="_top"
+  <li class=" mt-1">
+    <a class="tagText" style="width: 100%; font-size: 1.6rem; color: rgb(138, 137, 136);" target="_top"
     routerLink="/postDetail/{{post.slug}}"
     routerLinkActive=""
     ariaCurrentWhenActive="page" >{{post.titte}}</a>
-      <span class="badge bg-secondary badge-pill ">{{post.view}}</span>
+      
   </li>
 </ng-container>
 </ul>
